@@ -1,0 +1,39 @@
+---
+import Section from 'components/layout/Section.astro';
+import Container from 'components/layout/Container.astro';
+
+const models = [
+  { category: 'LLM', items: ['Qwen3 (0.6B - 32B)', 'GLM-4 (9B)', 'Mixtral', 'Llama 2/3', 'Phi-3/4', 'DeepSeek'] },
+  { category: 'ASR', items: ['Paraformer (30+ langs)', 'Whisper', 'SenseVoice'] },
+  { category: 'TTS', items: ['Qwen3-TTS', 'GPT-SoVITS (voice cloning)', 'CosyVoice'] },
+  { category: 'Image', items: ['FLUX.2-klein', 'Z-Image'] },
+];
+---
+
+<Section padY="lg">
+  <Container>
+    <div class="mb-8 reveal">
+      <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-neutral-2">Supported Models</p>
+      <h2 class="mt-3 text-[28px] tracking-[-0.03em] md:text-[36px] lg:text-[48px]">
+        14 model crates and growing
+      </h2>
+      <p class="mt-4 max-w-2xl text-[16px] leading-relaxed text-neutral-2">
+        Each model is a standalone Rust crate with optimized inference kernels.
+        Models are downloaded on first use and cached locally.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+      {models.map((group) => (
+        <div class="rounded-lg border border-surface-3 bg-surface-1 p-5 reveal">
+          <p class="font-mono text-[16px] font-semibold uppercase tracking-[0.08em] text-accent">{group.category}</p>
+          <ul class="mt-3 space-y-2">
+            {group.items.map((item) => (
+              <li class="text-[16px] text-neutral-2">{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </Container>
+</Section>

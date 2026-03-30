@@ -1,0 +1,26 @@
+[
+  {
+    "question": "What hardware does OminiX support?",
+    "answer": "OminiX-MLX runs natively on Apple Silicon (M1, M2, M3, M4) using Metal acceleration. OminiX-Ascend supports Huawei Ascend 910B and 310P NPUs. CUDA support for NVIDIA GPUs is on the roadmap."
+  },
+  {
+    "question": "How is OminiX different from Ollama or LM Studio?",
+    "answer": "OminiX is a full multimodal platform, not just an LLM runner. It handles LLMs, TTS, ASR, voice cloning, image generation, and OCR in a single server. It is written in pure Rust with zero Python dependencies, and provides a fully OpenAI-compatible API including audio and image endpoints."
+  },
+  {
+    "question": "Do I need Python installed?",
+    "answer": "No. OminiX has zero Python dependencies. The entire stack is written in Rust, including model loading, tokenization, and inference. Just download and run."
+  },
+  {
+    "question": "What models are supported?",
+    "answer": "OminiX supports Qwen3 (0.6B to 32B), GLM-4, Mixtral, Llama, Phi, and more for LLMs. For audio: Paraformer and Whisper (ASR), Qwen3-TTS and GPT-SoVITS (speech synthesis and voice cloning). For images: FLUX.2-klein and Z-Image."
+  },
+  {
+    "question": "Is OminiX open source?",
+    "answer": "Yes. OminiX-MLX and OminiX-API are open source and available on GitHub. You can inspect the code, contribute, and build custom model crates."
+  },
+  {
+    "question": "Can I use OminiX as a drop-in replacement for OpenAI?",
+    "answer": "Yes. OminiX-API implements the OpenAI API specification. Point your existing OpenAI SDK client at localhost:8080 and your code works without changes. Supported endpoints include chat completions, audio transcriptions, speech synthesis, image generations, and OCR."
+  }
+]

@@ -1,0 +1,26 @@
+---
+import Section from 'components/layout/Section.astro';
+import Container from 'components/layout/Container.astro';
+import Button from 'components/ui/Button.astro';
+---
+
+<Section background="secondary" padY="lg">
+  <Container narrow class="text-center">
+    <div data-animate>
+      <h2 class="text-[28px] tracking-[-0.03em] text-text-bright md:text-[36px] lg:text-[48px]">
+        Run AI on your device<br class="hidden md:block" /> in 60 seconds
+      </h2>
+      <p class="mx-auto mt-4 max-w-md text-[16px] leading-relaxed text-neutral-2">
+        Install the server, start it, and talk to your models. No cloud, no API keys, no Python.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <Button href="#quickstart">
+          Get Started
+        </Button>
+        <Button href="https://github.com/OminiX-ai" variant="outline" external>
+          GitHub
+        </Button>
+      </div>
+    </div>
+  </Container>
+</Section>

@@ -1,0 +1,6 @@
+[
+  { "value": "45", "label": "tok/s LLM on M3" },
+  { "value": "18x", "label": "real-time ASR" },
+  { "value": "14", "label": "model crates" },
+  { "value": "0", "label": "Python deps" }
+]

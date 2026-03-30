@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Pure Rust",
+    "description": "Full-stack AI inference written entirely in Rust. No C++ bindings, no Python runtime, no garbage collection pauses. Predictable performance from top to bottom.",
+    "stat": "100%",
+    "statLabel": "Rust"
+  },
+  {
+    "title": "Apple Silicon MLX",
+    "description": "Native Metal acceleration on M1 through M4 chips via the MLX backend. 14 model crates optimized for unified memory architecture.",
+    "stat": "14",
+    "statLabel": "model crates"
+  },
+  {
+    "title": "OpenAI-Compatible API",
+    "description": "Drop-in replacement for OpenAI endpoints. Chat completions, audio transcription, text-to-speech, image generation, and OCR via REST and WebSocket.",
+    "stat": null,
+    "statLabel": null
+  },
+  {
+    "title": "Ascend NPU Support",
+    "description": "Run inference on Huawei Ascend 910B and 310P NPUs with 6.6x speedup over Torch-NPU. Enterprise-grade AI on dedicated hardware.",
+    "stat": "6.6x",
+    "statLabel": "faster than Torch-NPU"
+  },
+  {
+    "title": "Voice Cloning",
+    "description": "Few-shot voice cloning with GPT-SoVITS. Clone any voice from a short audio sample. 9 preset speakers, 12 languages, and emotion control.",
+    "stat": "9",
+    "statLabel": "preset voices"
+  },
+  {
+    "title": "Image Generation",
+    "description": "Generate images locally with FLUX.2-klein and Z-Image models. Text-to-image in roughly 5 seconds per image on Apple Silicon.",
+    "stat": "~5s",
+    "statLabel": "per image"
+  },
+  {
+    "title": "ASR (30+ Languages)",
+    "description": "Automatic speech recognition with Paraformer and Whisper. 18x real-time speed on M3. Supports 30+ languages with word-level timestamps.",
+    "stat": "18x",
+    "statLabel": "real-time"
+  },
+  {
+    "title": "Dynamic Model Loading",
+    "description": "Load and unload models on demand. Share GPU memory across models. No need to restart the server when switching between tasks.",
+    "stat": null,
+    "statLabel": null
+  },
+  {
+    "title": "On-Device Privacy",
+    "description": "All inference runs locally. No data leaves your machine. No API keys required for local models. Complete control over your AI stack.",
+    "stat": "0",
+    "statLabel": "cloud calls"
+  }
+]

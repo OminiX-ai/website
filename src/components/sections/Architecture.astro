@@ -1,0 +1,42 @@
+---
+import SvgSection from 'components/ui/SvgSection.astro';
+import ArchitectureFlow from 'components/ArchitectureFlow.jsx';
+---
+
+<SvgSection id="architecture" bgSrc="/images/bg-grid-panel.png">
+  <!-- Text panel -->
+  <div class="glass-panel mb-8 reveal">
+    <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-neutral-2">Architecture</p>
+    <h2 class="mt-3 text-[28px] tracking-[-0.03em] md:text-[36px] lg:text-[48px]">
+      Full-stack on-device AI
+    </h2>
+    <p class="mt-4 max-w-2xl text-[16px] leading-relaxed text-neutral-2">
+      Four-layer architecture: OminiX Studio desktop app connects to the API Server,
+      which dispatches inference to MLX (Apple Silicon), Ascend (Huawei NPU), or CUDA backends.
+      Each backend runs specialized model crates for LLM, TTS, ASR, and image generation.
+    </p>
+    <div class="mt-6 flex flex-wrap gap-x-8 gap-y-3">
+      <div class="flex items-start gap-3">
+        <span class="mt-1 block size-1.5 shrink-0 rounded-full bg-title" />
+        <p class="text-[16px] text-text"><strong class="font-normal text-text-bright">OminiX Studio</strong> — desktop app</p>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="mt-1 block size-1.5 shrink-0 rounded-full bg-heading" />
+        <p class="text-[16px] text-text"><strong class="font-normal text-text-bright">OminiX API</strong> — OpenAI-compatible server</p>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="mt-1 block size-1.5 shrink-0 rounded-full bg-heading" />
+        <p class="text-[16px] text-text"><strong class="font-normal text-text-bright">MLX / Ascend / CUDA</strong> — inference backends</p>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="mt-1 block size-1.5 shrink-0 rounded-full bg-accent" />
+        <p class="text-[16px] text-text"><strong class="font-normal text-text-bright">Model Crates</strong> — LLM, TTS, ASR, Image Gen</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full-width React Flow diagram -->
+  <div class="glass-panel reveal">
+    <ArchitectureFlow client:only="react" />
+  </div>
+</SvgSection>

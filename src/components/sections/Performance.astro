@@ -1,0 +1,52 @@
+---
+import Section from 'components/layout/Section.astro';
+import Container from 'components/layout/Container.astro';
+
+const benchmarks = [
+  { model: 'Qwen3-4B', hardware: 'M3 Max', throughput: '45 tok/s', memory: '8 GB' },
+  { model: 'GLM4-9B-4bit', hardware: 'M3 Max', throughput: '35 tok/s', memory: '6 GB' },
+  { model: 'Paraformer', hardware: 'M3 Max', throughput: '18x real-time', memory: '500 MB' },
+  { model: 'Qwen3-TTS', hardware: 'M3 Max', throughput: '2.3x real-time', memory: '1.8 GB' },
+  { model: 'Qwen3-8B', hardware: 'Ascend 910B', throughput: '42 tok/s', memory: '\u2014' },
+  { model: 'Llama2-7B', hardware: 'Ascend 910B', throughput: '50 tok/s', memory: '\u2014' },
+  { model: 'FLUX.2-klein', hardware: 'M3 Max', throughput: '~5s/image', memory: '13 GB' },
+];
+---
+
+<Section id="performance" padY="lg">
+  <Container>
+    <div class="mb-12 lg:mb-16" data-animate>
+      <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-neutral-2">Performance</p>
+      <h2 class="mt-3 text-[28px] tracking-[-0.03em] md:text-[36px] lg:text-[48px]">
+        Benchmarks
+      </h2>
+      <p class="mt-4 max-w-xl text-[16px] leading-relaxed text-neutral-2">
+        Real-world throughput on Apple Silicon and Ascend NPU hardware.
+        Pure Rust inference with zero overhead from Python or garbage collection.
+      </p>
+    </div>
+
+    <div class="overflow-x-auto" data-animate>
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="border-b border-surface-3">
+            <th class="px-4 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-neutral-2">Model</th>
+            <th class="px-4 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-neutral-2">Hardware</th>
+            <th class="px-4 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-accent">Throughput</th>
+            <th class="px-4 py-3 text-left font-mono text-[15px] uppercase tracking-[0.08em] text-neutral-2">Memory</th>
+          </tr>
+        </thead>
+        <tbody>
+          {benchmarks.map((row) => (
+            <tr class="border-b border-surface-3 transition-colors duration-200 hover:bg-surface-1">
+              <td class="px-4 py-3 font-mono text-[16px] text-text-bright">{row.model}</td>
+              <td class="px-4 py-3 font-mono text-[16px] text-neutral-2">{row.hardware}</td>
+              <td class="px-4 py-3 font-mono text-[16px] text-accent">{row.throughput}</td>
+              <td class="px-4 py-3 font-mono text-[16px] text-neutral-2">{row.memory}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </Container>
+</Section>

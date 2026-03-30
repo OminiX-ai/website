@@ -1,0 +1,34 @@
+---
+import Section from 'components/layout/Section.astro';
+import Container from 'components/layout/Container.astro';
+---
+
+<Section id="privacy" padY="lg">
+  <Container>
+    <div class="mb-8 reveal">
+      <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-neutral-2">On-Device Privacy</p>
+      <h2 class="mt-3 text-[28px] tracking-[-0.03em] md:text-[36px] lg:text-[48px]">
+        Your data never leaves your device
+      </h2>
+      <p class="mt-4 max-w-2xl text-[16px] leading-relaxed text-neutral-2">
+        All inference runs locally on your hardware. No cloud services, no telemetry,
+        no API keys required for local models. Complete control over your AI stack.
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      <div class="rounded-lg border border-surface-3 bg-surface-1 p-5 reveal">
+        <h3 class="text-[16px] text-accent">No cloud dependency</h3>
+        <p class="mt-2 text-[16px] leading-relaxed text-neutral-2">OminiX runs entirely offline after model download. No internet connection required for inference. No data is sent to any external server.</p>
+      </div>
+      <div class="rounded-lg border border-surface-3 bg-surface-1 p-5 reveal">
+        <h3 class="text-[16px] text-accent">No API keys for local models</h3>
+        <p class="mt-2 text-[16px] leading-relaxed text-neutral-2">Start the server and use it immediately. No accounts, no subscriptions, no rate limits. Your hardware, your models, your rules.</p>
+      </div>
+      <div class="rounded-lg border border-surface-3 bg-surface-1 p-5 reveal">
+        <h3 class="text-[16px] text-accent">All data stays on device</h3>
+        <p class="mt-2 text-[16px] leading-relaxed text-neutral-2">Audio recordings, generated images, chat conversations, and voice clones are processed and stored locally. Nothing leaves your machine.</p>
+      </div>
+    </div>
+  </Container>
+</Section>

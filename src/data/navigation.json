@@ -1,0 +1,12 @@
+{
+  "links": [
+    { "text": "Features", "href": "#features" },
+    { "text": "Products", "href": "#products" },
+    { "text": "Performance", "href": "#performance" },
+    { "text": "Quick Start", "href": "#quickstart" }
+  ],
+  "external": [
+    { "text": "GitHub", "href": "https://github.com/OminiX-ai" },
+    { "text": "Docs", "href": "https://docs.ominix.ai" }
+  ]
+}

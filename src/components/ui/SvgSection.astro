@@ -1,0 +1,24 @@
+---
+/**
+ * Section with a subtle gradient background and frosted glass content.
+ */
+interface Props {
+  id?: string;
+  bgSrc?: string;
+  class?: string;
+}
+
+const { id, class: className } = Astro.props;
+---
+
+<section id={id} class:list={['relative overflow-hidden', className]}>
+  <!-- Gradient background (no image) -->
+  <div class="absolute inset-0 z-0 bg-gradient-to-br from-bg via-bg-secondary to-bg opacity-80"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 px-4 py-20 lg:px-9 lg:py-32">
+    <div class="mx-auto max-w-7xl">
+      <slot />
+    </div>
+  </div>
+</section>

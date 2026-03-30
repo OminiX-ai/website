@@ -1,0 +1,53 @@
+---
+const links = [
+  { text: 'Features', href: '#features' },
+  { text: 'Products', href: '#products' },
+  { text: 'Performance', href: '#performance' },
+  { text: 'Quick Start', href: '#quickstart' },
+];
+
+const external = [
+  { text: 'GitHub', href: 'https://github.com/OminiX-ai' },
+  { text: 'Docs', href: 'https://docs.ominix.ai' },
+];
+---
+
+<footer class="border-t border-surface-3 px-4 py-12 lg:px-9 lg:py-16">
+  <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-6">
+    <div class="lg:col-span-5">
+      <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-text-bright">OminiX</p>
+      <p class="mt-1 text-[15px] font-medium text-neutral-2">On-Device Multimodal AI Platform</p>
+      <p class="mt-3 max-w-sm text-[16px] leading-relaxed text-neutral-2">
+        Pure Rust. Zero Python. Run LLMs, generate images, clone voices, and transcribe speech — all on your device.
+      </p>
+    </div>
+
+    <div class="lg:col-span-3">
+      <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-neutral-2">Navigation</p>
+      <nav class="mt-4 flex flex-col gap-3">
+        {links.map((link) => (
+          <a href={link.href} class="link-animated w-fit font-mono text-[16px] uppercase tracking-[0.08em] text-text">{link.text}</a>
+        ))}
+      </nav>
+    </div>
+
+    <div class="lg:col-span-4">
+      <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-neutral-2">Resources</p>
+      <nav class="mt-4 flex flex-col gap-3">
+        {external.map((link) => (
+          <a
+            href={link.href}
+            target={link.href.startsWith('http') ? '_blank' : undefined}
+            rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+            class="link-animated w-fit font-mono text-[16px] uppercase tracking-[0.08em] text-text"
+          >{link.text}</a>
+        ))}
+      </nav>
+    </div>
+  </div>
+
+  <div class="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-surface-3 pt-8">
+    <p class="font-mono text-[16px] tracking-[0.08em] text-neutral-1">MIT License</p>
+    <p class="font-mono text-[16px] tracking-[0.08em] text-neutral-1">Built with pure Rust</p>
+  </div>
+</footer>

@@ -1,0 +1,58 @@
+---
+import SvgSection from 'components/ui/SvgSection.astro';
+---
+
+<SvgSection>
+  <div class="glass-panel mb-8 reveal">
+    <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-neutral-2">API Endpoints</p>
+    <h2 class="mt-3 text-[28px] tracking-[-0.03em] md:text-[36px] lg:text-[48px]">
+      OpenAI-compatible API
+    </h2>
+    <p class="mt-4 max-w-2xl text-[16px] leading-relaxed text-neutral-2">
+      Drop-in replacement for OpenAI. Point your existing SDK at localhost:8080
+      and everything works without code changes.
+    </p>
+  </div>
+
+  <div class="space-y-4">
+    <div class="glass-panel border-l-2 !border-l-accent reveal">
+      <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-accent">/v1/chat/completions</p>
+      <h3 class="mt-2 text-[18px] tracking-[-0.01em]">Chat & LLM</h3>
+      <p class="mt-1 text-[16px] leading-relaxed text-neutral-2">
+        Streaming and non-streaming chat completions. Supports Qwen3, GLM-4, Mixtral, and more.
+      </p>
+    </div>
+
+    <div class="glass-panel border-l-2 !border-l-heading reveal">
+      <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-heading">/v1/audio/transcriptions</p>
+      <h3 class="mt-2 text-[18px] tracking-[-0.01em]">Speech Recognition</h3>
+      <p class="mt-1 text-[16px] leading-relaxed text-neutral-2">
+        Transcribe audio files in 30+ languages. 18x real-time with Paraformer. Word-level timestamps.
+      </p>
+    </div>
+
+    <div class="glass-panel border-l-2 !border-l-code reveal">
+      <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-code">/v1/audio/speech</p>
+      <h3 class="mt-2 text-[18px] tracking-[-0.01em]">Text-to-Speech & Voice Cloning</h3>
+      <p class="mt-1 text-[16px] leading-relaxed text-neutral-2">
+        Generate speech with 9 preset voices or clone any voice from a short audio sample. 12 languages supported.
+      </p>
+    </div>
+
+    <div class="glass-panel border-l-2 !border-l-accent reveal">
+      <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-accent">/v1/images/generations</p>
+      <h3 class="mt-2 text-[18px] tracking-[-0.01em]">Image Generation</h3>
+      <p class="mt-1 text-[16px] leading-relaxed text-neutral-2">
+        Text-to-image with FLUX.2-klein and Z-Image. Generate images locally in roughly 5 seconds.
+      </p>
+    </div>
+
+    <div class="glass-panel border-l-2 !border-l-heading reveal">
+      <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-heading">/v1/ocr</p>
+      <h3 class="mt-2 text-[18px] tracking-[-0.01em]">Optical Character Recognition</h3>
+      <p class="mt-1 text-[16px] leading-relaxed text-neutral-2">
+        Extract text from images and documents. On-device OCR with no cloud dependency.
+      </p>
+    </div>
+  </div>
+</SvgSection>

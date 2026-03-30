@@ -1,0 +1,40 @@
+---
+import Section from 'components/layout/Section.astro';
+import Container from 'components/layout/Container.astro';
+import CodeBlock from 'components/ui/CodeBlock.astro';
+
+const code = `<span class="text-neutral-2"># Install OminiX API</span>
+curl -fsSL https://raw.githubusercontent.com/OminiX-ai/OminiX-API/main/install.sh | sh
+
+<span class="text-neutral-2"># Start the server</span>
+ominix-api
+
+<span class="text-neutral-2"># Chat with LLM</span>
+curl http://localhost:8080/v1/chat/completions \\
+  -d '{"model":"qwen3","messages":[{"role":"user","content":"Hello!"}]}'
+
+<span class="text-neutral-2"># Transcribe audio</span>
+curl http://localhost:8080/v1/audio/transcriptions -F file=@audio.wav
+
+<span class="text-neutral-2"># Generate speech</span>
+curl http://localhost:8080/v1/audio/speech \\
+  -d '{"input":"Hello world","voice":"vivian"}' -o speech.wav`;
+---
+
+<Section id="quickstart" background="secondary" padY="lg">
+  <Container narrow>
+    <div class="mb-12 lg:mb-16" data-animate>
+      <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-neutral-2">Get Started</p>
+      <h2 class="mt-3 text-[28px] tracking-[-0.03em] text-text-bright md:text-[36px] lg:text-[48px]">
+        Run AI on your device in 60 seconds
+      </h2>
+      <p class="mt-4 max-w-xl text-[16px] leading-relaxed text-neutral-2">
+        One command to install, one command to start. No Docker, no Python, no complex setup.
+      </p>
+    </div>
+
+    <div data-animate>
+      <CodeBlock code={code} />
+    </div>
+  </Container>
+</Section>

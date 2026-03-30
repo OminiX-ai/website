@@ -1,0 +1,40 @@
+---
+import Section from 'components/layout/Section.astro';
+import Container from 'components/layout/Container.astro';
+
+const hardware = [
+  { name: 'Apple M1', status: 'Supported', description: 'MLX backend with Metal acceleration' },
+  { name: 'Apple M2', status: 'Supported', description: 'MLX backend with Metal acceleration' },
+  { name: 'Apple M3', status: 'Supported', description: 'MLX backend with Metal acceleration. Primary benchmark target.' },
+  { name: 'Apple M4', status: 'Supported', description: 'MLX backend with Metal acceleration' },
+  { name: 'Ascend 910B', status: 'Supported', description: 'OminiX-Ascend with 6.6x speedup over Torch-NPU' },
+  { name: 'Ascend 310P', status: 'Supported', description: 'OminiX-Ascend for edge deployment' },
+];
+---
+
+<Section id="hardware" background="secondary" padY="lg">
+  <Container>
+    <div class="mb-12 lg:mb-16" data-animate>
+      <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-neutral-2">Supported Hardware</p>
+      <h2 class="mt-3 text-[28px] tracking-[-0.03em] text-text-bright md:text-[36px] lg:text-[48px]">
+        Native acceleration
+      </h2>
+      <p class="mt-4 max-w-xl text-[16px] leading-relaxed text-neutral-2">
+        OminiX targets specific hardware with dedicated backends. No emulation layers,
+        no compatibility shims. Direct access to Metal and Ascend NPU compute.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3" data-animate-stagger>
+      {hardware.map((hw) => (
+        <div class="rounded-lg border border-surface-3 bg-surface-1 p-5">
+          <div class="flex items-center justify-between">
+            <p class="font-mono text-[16px] font-semibold text-text-bright">{hw.name}</p>
+            <span class="rounded-sm bg-accent/10 px-2 py-0.5 font-mono text-[11px] uppercase tracking-[0.08em] text-accent">{hw.status}</span>
+          </div>
+          <p class="mt-2 text-[16px] text-neutral-2">{hw.description}</p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</Section>

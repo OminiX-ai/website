@@ -1,0 +1,50 @@
+---
+import Section from 'components/layout/Section.astro';
+import Container from 'components/layout/Container.astro';
+---
+
+<Section id="voice-cloning" background="secondary" padY="lg">
+  <Container>
+    <div class="mb-12 lg:mb-16" data-animate>
+      <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-neutral-2">Voice Cloning & TTS</p>
+      <h2 class="mt-3 text-[28px] tracking-[-0.03em] text-text-bright md:text-[36px] lg:text-[48px]">
+        Clone any voice locally
+      </h2>
+      <p class="mt-4 max-w-xl text-[16px] leading-relaxed text-neutral-2">
+        Few-shot voice cloning with GPT-SoVITS. Provide a short audio sample and generate
+        speech in the cloned voice. All processing stays on your device.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2" data-animate-stagger>
+      <div class="border border-surface-3 bg-surface-1 p-6">
+        <p class="mb-3 font-mono text-[16px] font-medium text-accent">9 Preset Speakers</p>
+        <p class="text-[16px] leading-relaxed text-neutral-2">
+          Built-in voices for immediate use. Male and female speakers across multiple
+          languages and speaking styles. No voice sample needed.
+        </p>
+      </div>
+      <div class="border border-surface-3 bg-surface-1 p-6">
+        <p class="mb-3 font-mono text-[16px] font-medium text-accent">12 Languages</p>
+        <p class="text-[16px] leading-relaxed text-neutral-2">
+          Generate speech in Chinese, English, Japanese, Korean, French, German, Spanish,
+          Italian, Portuguese, Russian, Arabic, and more.
+        </p>
+      </div>
+      <div class="border border-surface-3 bg-surface-1 p-6">
+        <p class="mb-3 font-mono text-[16px] font-medium text-accent">Emotion Control</p>
+        <p class="text-[16px] leading-relaxed text-neutral-2">
+          Adjust speaking style and emotion through text prompts. Control speed, pitch,
+          and expressiveness for natural-sounding output.
+        </p>
+      </div>
+      <div class="border border-surface-3 bg-surface-1 p-6">
+        <p class="mb-3 font-mono text-[16px] font-medium text-accent">Few-Shot Cloning</p>
+        <p class="text-[16px] leading-relaxed text-neutral-2">
+          Clone a voice from just a few seconds of audio. The cloned voice can then
+          speak any text in any supported language.
+        </p>
+      </div>
+    </div>
+  </Container>
+</Section>

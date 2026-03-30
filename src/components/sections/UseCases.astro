@@ -1,0 +1,71 @@
+---
+import Section from 'components/layout/Section.astro';
+import Container from 'components/layout/Container.astro';
+
+const cases = [
+  {
+    label: '01',
+    title: 'Local AI Assistant',
+    description: 'Run a private ChatGPT-like assistant on your laptop. Chat with LLMs, generate images, and transcribe audio without any cloud dependency.',
+    highlights: ['Chat completions', 'On-device', 'Private'],
+  },
+  {
+    label: '02',
+    title: 'Voice Cloning Studio',
+    description: 'Clone voices from short audio samples and generate speech in any language. Build audiobooks, voiceovers, and accessibility tools locally.',
+    highlights: ['GPT-SoVITS', 'Few-shot cloning', '12 languages'],
+  },
+  {
+    label: '03',
+    title: 'On-Device Translation',
+    description: 'Transcribe speech in 30+ languages with Paraformer, translate with LLM, and synthesize output with TTS. Full pipeline on your machine.',
+    highlights: ['ASR + LLM + TTS', '30+ languages', 'Real-time'],
+  },
+  {
+    label: '04',
+    title: 'Edge Deployment',
+    description: 'Deploy AI inference on edge devices with Apple Silicon or Ascend NPUs. No cloud round-trips, minimal latency, works offline.',
+    highlights: ['Offline capable', 'Low latency', 'Compact models'],
+  },
+  {
+    label: '05',
+    title: 'Enterprise AI (Ascend)',
+    description: 'Run AI workloads on Huawei Ascend 910B and 310P hardware in data centers. 6.6x speedup over Torch-NPU with pure Rust reliability.',
+    highlights: ['Ascend NPU', 'Enterprise', '6.6x speedup'],
+  },
+  {
+    label: '06',
+    title: 'Creative Tools',
+    description: 'Generate images with FLUX, create music with voice cloning, build interactive stories with LLM and TTS. All powered by local inference.',
+    highlights: ['FLUX image gen', 'Voice synthesis', 'LLM generation'],
+  },
+];
+---
+
+<Section id="usecases" padY="lg">
+  <Container>
+    <div class="mb-12 lg:mb-16" data-animate>
+      <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-neutral-2">Use Cases</p>
+      <h2 class="mt-3 text-[28px] tracking-[-0.03em] md:text-[36px] lg:text-[48px]">
+        Built for real workloads
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 gap-px overflow-hidden border border-surface-3 md:grid-cols-2 lg:grid-cols-3" data-animate-stagger>
+      {cases.map((c) => (
+        <div class="group bg-surface-1 p-6 transition-colors duration-300 hover:bg-surface-2 lg:p-8">
+          <span class="font-mono text-[15px] text-neutral-1">{c.label}</span>
+          <h3 class="mt-3 text-[18px] tracking-[-0.01em] lg:text-[20px]">{c.title}</h3>
+          <p class="mt-3 text-[16px] leading-relaxed text-neutral-2">{c.description}</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {c.highlights.map((h) => (
+              <span class="rounded-sm bg-surface-3 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.08em] text-neutral-2 transition-colors duration-300 group-hover:text-accent">
+                {h}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </Container>
+</Section>

@@ -1,0 +1,55 @@
+---
+import SvgSection from 'components/ui/SvgSection.astro';
+
+const products = [
+  {
+    name: 'OminiX-MLX',
+    color: 'text-accent',
+    description: 'Rust inference engine for Apple Silicon (M1 through M4). 14 model crates including LLM, TTS, ASR, voice cloning, and image generation. 45 tok/s on M3.',
+    specs: ['14 model crates', 'Metal acceleration', '45 tok/s LLM', '18x real-time ASR'],
+  },
+  {
+    name: 'OminiX-API',
+    color: 'text-heading',
+    description: 'Drop-in OpenAI-compatible server. Chat, speech, images, voice cloning, and OCR via REST and WebSocket. Dynamic model loading with shared GPU memory.',
+    specs: ['OpenAI compatible', 'REST + WebSocket', 'Dynamic loading', 'Multi-model'],
+  },
+  {
+    name: 'OminiX-Ascend',
+    color: 'text-code',
+    description: 'Huawei Ascend NPU support for enterprise deployment. 6.6x speedup over Torch-NPU. LLM, image generation, and ASR on 910B and 310P hardware.',
+    specs: ['6.6x vs Torch-NPU', 'Ascend 910B/310P', 'Enterprise grade', '50 tok/s Llama2-7B'],
+  },
+];
+---
+
+<SvgSection id="products" bgSrc="/images/bg-circuit-panel.png">
+  <!-- Text panel -->
+  <div class="glass-panel mb-8 reveal">
+    <p class="font-mono text-[16px] uppercase tracking-[0.08em] text-neutral-2">Products</p>
+    <h2 class="mt-3 text-[28px] tracking-[-0.03em] md:text-[36px] lg:text-[48px]">
+      Three products, one platform
+    </h2>
+    <p class="mt-4 max-w-2xl text-[16px] leading-relaxed text-neutral-2">
+      OminiX covers the full stack from inference engine to API server to hardware acceleration.
+      Choose the components you need for your deployment.
+    </p>
+  </div>
+
+  <!-- Product cards -->
+  <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+    {products.map((p, i) => (
+      <div class="glass-panel reveal" style={`animation-delay: ${i * 100}ms`}>
+        <p class:list={['font-mono text-[18px] font-semibold uppercase tracking-[0.08em]', p.color]}>{p.name}</p>
+        <p class="mt-3 text-[16px] leading-relaxed text-neutral-2">{p.description}</p>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {p.specs.map((s) => (
+            <span class="rounded-sm border border-surface-3 bg-surface-1 px-2 py-0.5 font-mono text-[11px] uppercase tracking-[0.08em] text-neutral-2">
+              {s}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</SvgSection>
