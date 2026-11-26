@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <!-- OminiX shape primitives. 1 unit = 100. Use: <svg viewBox="..."><use href="/shapes.svg#arch"/></svg> -->
+  <symbol id="dot" viewBox="0 0 200 200"><circle cx="100" cy="100" r="100" fill="currentColor"/></symbol>
+  <symbol id="arch" viewBox="0 0 200 400"><path d="M0 400V100a100 100 0 0 1 200 0v300z" fill="currentColor"/></symbol>
+  <symbol id="cup" viewBox="0 0 200 400"><path d="M0 0h200v300a100 100 0 0 1-200 0z" fill="currentColor"/></symbol>
+  <symbol id="block" viewBox="0 0 200 200"><rect width="200" height="200" fill="currentColor"/></symbol>
+  <symbol id="pip" viewBox="0 0 200 400"><circle cx="100" cy="100" r="100" fill="currentColor"/><rect y="200" width="200" height="200" fill="currentColor"/></symbol>
+  <symbol id="double-arch" viewBox="0 0 400 400"><path d="M0 400V100a100 100 0 0 1 200 0a100 100 0 0 1 200 0v300z" fill="currentColor"/></symbol>
+  <symbol id="wave" viewBox="0 0 400 400"><path d="M0 400V100a100 100 0 0 1 200 0v300zM200 0h200v300a100 100 0 0 1-200 0z" fill="currentColor"/></symbol>
+  <symbol id="quad" viewBox="0 0 400 400"><g fill="currentColor"><circle cx="100" cy="100" r="100"/><circle cx="300" cy="100" r="100"/><circle cx="100" cy="300" r="100"/><circle cx="300" cy="300" r="100"/></g></symbol>
+  <symbol id="ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="88" fill="none" stroke="currentColor" stroke-width="24"/></symbol>
+</svg>

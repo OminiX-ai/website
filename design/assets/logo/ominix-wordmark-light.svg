@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 400" role="img" aria-label="OminiX"><title>OminiX</title>
+  <circle cx="200" cy="200" r="200" fill="#16A39C"/>
+  <path d="M400 400V100a100 100 0 0 1 200 0a100 100 0 0 1 200 0v300z" fill="#CE412B"/>
+  <g fill="#000000"><circle cx="900" cy="100" r="100"/><rect x="800" y="200" width="200" height="200"/></g>
+  <path d="M1000 400V100a100 100 0 0 1 200 0v300zM1200 0h200v300a100 100 0 0 1-200 0z" fill="#FBD220"/>
+  <g fill="#000000"><circle cx="1500" cy="100" r="100"/><rect x="1400" y="200" width="200" height="200"/></g>
+  <g fill="#CA5879"><circle cx="1700" cy="100" r="100"/><circle cx="1900" cy="100" r="100"/><circle cx="1700" cy="300" r="100"/><circle cx="1900" cy="300" r="100"/></g>
+</svg>

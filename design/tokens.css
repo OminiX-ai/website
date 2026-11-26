@@ -1,0 +1,192 @@
+/* ==========================================================================
+   OminiX design tokens — drop-in replacement for the token blocks in
+   src/styles/global.css (the @theme block + html[data-theme] blocks).
+
+   Existing token NAMES are kept (bg, surface-1..3, neutral-1/2, text, accent,
+   heading, link, code…) so current Tailwind classes keep compiling; only the
+   VALUES change. New tokens (brand colors, *-text, *-soft, night, cta,
+   radii, shadows) are added.
+
+   Every color comes from the OminiX logo. The dark neutrals are the logo
+   teal's own hue (OKLCH h≈189°) at low lightness: "teal ink".
+
+   Default (no data-theme attribute) = dark.
+
+   `@theme static` is deliberate: Tailwind 4.2 otherwise drops every theme
+   variable that no utility class uses (verified), so tokens read only from
+   Astro <style> blocks, inline styles or JS (e.g. --ease-spring,
+   --color-teal-text) would be missing in the default theme.
+   ========================================================================== */
+
+@theme static {
+  /* ---- Brand: exact colors sampled from the logo PNGs. FILLS ONLY. ------ */
+  --color-teal: #16A39C;        /* "O"  — LLM / chat / core */
+  --color-vermilion: #CE412B;   /* "m"  — speech-in / ASR */
+  --color-sunflower: #FBD220;   /* "n"  — vision / image gen / OCR */
+  --color-rose: #CA5879;        /* "x"  — voice-out / TTS / cloning */
+  --color-ink: #FFFFFF;         /* "i"  — black on light, white on dark */
+
+  /* ---- Brand as TEXT: ≥4.5:1 against bg + surface-1 in each theme ------- */
+  --color-teal-text: #2EC4BC;
+  --color-vermilion-text: #F07560;
+  --color-sunflower-text: #FBD220;
+  --color-rose-text: #E58AA4;
+
+  /* ---- Brand soft tints (tags, card washes, table highlight) ----------- */
+  --color-teal-soft: rgb(22 163 156 / 0.16);
+  --color-vermilion-soft: rgb(206 65 43 / 0.16);
+  --color-sunflower-soft: rgb(251 210 32 / 0.14);
+  --color-rose-soft: rgb(202 88 121 / 0.16);
+
+  /* ---- Night: constants that never flip (hero, models band, footer) ---- */
+  --color-night: #041918;       /* logo teal hue, OKLCH L 0.195 */
+  --color-night-2: #072120;
+  --color-on-night: #E7F1F0;    /* text on night, 15.8:1 */
+  --color-on-night-dim: #98B5B2;/* 8.3:1 */
+
+  /* ---- Primary call-to-action --------------------------------------- */
+  --color-cta: #FBD220;         /* sunflower pill */
+  --color-cta-text: #041918;    /* 12.4:1 on sunflower */
+  --color-cta-hover: #FFE15A;
+
+  /* ---- Theme-dependent neutrals (dark default) ----------------------- */
+  --color-bg: #041918;
+  --color-bg-secondary: #072120;
+  --color-surface-1: #0A2927;
+  --color-surface-2: #133331;
+  --color-surface-3: #254543;   /* hairlines / borders */
+  --color-neutral-1: #85A29F;   /* faint text  (≥5.6:1) */
+  --color-neutral-2: #98B5B2;   /* dim text    (≥7.0:1) */
+  --color-text: #E7F1F0;
+  --color-text-bright: #FFFFFF;
+  --color-text-dim: #98B5B2;
+  --color-accent: #2EC4BC;      /* = teal-text. links, focus, highlights */
+  --color-accent-dark: #16A39C;
+  --color-heading: #FFFFFF;     /* headings are NOT colored any more */
+  --color-title: #FFFFFF;
+  --color-link: #2EC4BC;
+  --color-code: #E58AA4;
+
+  /* ---- Type (variable fonts from @fontsource-variable, see DESIGN.md §4.3) */
+  --font-sans: 'Geist Variable', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SFMono-Regular', monospace;
+
+  /* ---- Radii: everything in the logo is a circle, a half-circle or a square */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  /* ---- Motion -------------------------------------------------------- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --animate-fade-in-up: fade-in-up 0.6s var(--ease-out-expo) both;
+  --animate-fade-in: fade-in 0.5s ease both;
+  --animate-glyph-in: glyph-in 0.8s var(--ease-spring) both;
+  --animate-float: float 26s ease-in-out infinite alternate;
+  --animate-wave: wave 1.2s ease-in-out infinite;
+  --animate-caret: caret 1s steps(1) infinite;
+
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  /* Logo assembly: each glyph pops up from its own baseline */
+  @keyframes glyph-in {
+    from { opacity: 0; transform: translateY(40%) scale(0.6); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  /* Slow drift for the large corner shapes and brand dots */
+  @keyframes float {
+    0%   { transform: translate3d(0, 0, 0) rotate(0deg); }
+    100% { transform: translate3d(10px, -22px, 0) rotate(2deg); }
+  }
+  /* Voice waveform bars */
+  @keyframes wave {
+    0%, 100% { transform: scaleY(0.35); }
+    50%      { transform: scaleY(1); }
+  }
+  @keyframes caret {
+    50% { opacity: 0; }
+  }
+}
+
+/* Explicit dark (same values as defaults) */
+html[data-theme="dark"] {
+  --color-ink: #FFFFFF;
+  --color-teal-text: #2EC4BC;
+  --color-vermilion-text: #F07560;
+  --color-sunflower-text: #FBD220;
+  --color-rose-text: #E58AA4;
+  --color-bg: #041918;
+  --color-bg-secondary: #072120;
+  --color-surface-1: #0A2927;
+  --color-surface-2: #133331;
+  --color-surface-3: #254543;
+  --color-neutral-1: #85A29F;
+  --color-neutral-2: #98B5B2;
+  --color-text: #E7F1F0;
+  --color-text-bright: #FFFFFF;
+  --color-text-dim: #98B5B2;
+  --color-accent: #2EC4BC;
+  --color-accent-dark: #16A39C;
+  --color-heading: #FFFFFF;
+  --color-title: #FFFFFF;
+  --color-link: #2EC4BC;
+  --color-code: #E58AA4;
+}
+
+/* Light = warm "paper": off-white keeps sunflower/vermilion from vibrating
+   against pure white and gives the flat shapes a printed-poster feel. */
+html[data-theme="light"] {
+  --color-ink: #000000;
+  --color-teal-text: #0C756F;       /* 5.2:1 on paper */
+  --color-vermilion-text: #B8371F;  /* 5.5:1 */
+  --color-sunflower-text: #7A5D00;  /* 5.8:1 — never put #FBD220 text on paper */
+  --color-rose-text: #A63F63;       /* 5.6:1 */
+  --color-teal-soft: rgb(22 163 156 / 0.12);
+  --color-vermilion-soft: rgb(206 65 43 / 0.10);
+  --color-sunflower-soft: rgb(251 210 32 / 0.22);
+  --color-rose-soft: rgb(202 88 121 / 0.12);
+  --color-bg: #FBF8F2;
+  --color-bg-secondary: #F3EEE3;
+  --color-surface-1: #FFFFFF;
+  --color-surface-2: #F6F2EA;
+  --color-surface-3: #E5DED0;
+  --color-neutral-1: #5F706E;       /* 4.9:1 */
+  --color-neutral-2: #4D5F5D;       /* 6.4:1 */
+  --color-text: #0F2220;            /* 15.6:1 */
+  --color-text-bright: #04100F;
+  --color-text-dim: #4D5F5D;
+  --color-accent: #0C756F;
+  --color-accent-dark: #0B6E69;
+  --color-heading: #0F2220;
+  --color-title: #04100F;
+  --color-link: #0C756F;
+  --color-code: #A63F63;
+}
+
+/* Shadows / elevation (dark relies on borders + inner highlight, light on soft shadow) */
+:root {
+  --shadow-card: inset 0 1px 0 rgb(255 255 255 / 0.04), 0 24px 48px -24px rgb(0 0 0 / 0.55);
+  --shadow-pop: 0 0 0 1px rgb(255 255 255 / 0.06), 0 30px 60px -20px rgb(0 0 0 / 0.6);
+}
+html[data-theme="light"] {
+  --shadow-card: 0 1px 2px rgb(15 34 32 / 0.06), 0 12px 32px -12px rgb(15 34 32 / 0.14);
+  --shadow-pop: 0 1px 2px rgb(15 34 32 / 0.08), 0 30px 60px -24px rgb(15 34 32 / 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

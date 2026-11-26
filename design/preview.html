@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OminiX Redesign Preview</title>
+<link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg" />
+<link rel="alternate" hreflang="en" href="preview.html" />
+<link rel="alternate" hreflang="zh-CN" href="preview-zh.html" />
+<link rel="alternate" hreflang="x-default" href="preview.html" />
+<!--
+  VISUAL REFERENCE ONLY — not production code.
+  Shows the target look for the redesign described in DESIGN.md.
+  Plain CSS so it opens anywhere; the real site uses Tailwind v4 + tokens.css.
+  Serve the website/ folder over http and open /design/preview.html.
+  Every visual here is built from the OminiX logo's own shapes and colors.
+-->
+<link rel="stylesheet" href="preview.css?v=calm2" />
+</head>
+<body>
+
+<!-- Shape primitives (same as assets/logo/shapes.svg) -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="dot" viewBox="0 0 200 200"><circle cx="100" cy="100" r="100" fill="currentColor"/></symbol>
+  <symbol id="arch" viewBox="0 0 200 400"><path d="M0 400V100a100 100 0 0 1 200 0v300z" fill="currentColor"/></symbol>
+  <symbol id="cup" viewBox="0 0 200 400"><path d="M0 0h200v300a100 100 0 0 1-200 0z" fill="currentColor"/></symbol>
+  <symbol id="block" viewBox="0 0 200 200"><rect width="200" height="200" fill="currentColor"/></symbol>
+  <symbol id="pip" viewBox="0 0 200 400"><circle cx="100" cy="100" r="100" fill="currentColor"/><rect y="200" width="200" height="200" fill="currentColor"/></symbol>
+  <symbol id="double-arch" viewBox="0 0 400 400"><path d="M0 400V100a100 100 0 0 1 200 0a100 100 0 0 1 200 0v300z" fill="currentColor"/></symbol>
+  <symbol id="wave" viewBox="0 0 400 400"><path d="M0 400V100a100 100 0 0 1 200 0v300zM200 0h200v300a100 100 0 0 1-200 0z" fill="currentColor"/></symbol>
+  <symbol id="quad" viewBox="0 0 400 400"><g fill="currentColor"><circle cx="100" cy="100" r="100"/><circle cx="300" cy="100" r="100"/><circle cx="100" cy="300" r="100"/><circle cx="300" cy="300" r="100"/></g></symbol>
+  <symbol id="wordmark" viewBox="0 0 2000 400">
+    <circle cx="200" cy="200" r="200" fill="#16A39C"/>
+    <path d="M400 400V100a100 100 0 0 1 200 0a100 100 0 0 1 200 0v300z" fill="#CE412B"/>
+    <g fill="currentColor"><circle cx="900" cy="100" r="100"/><rect x="800" y="200" width="200" height="200"/></g>
+    <path d="M1000 400V100a100 100 0 0 1 200 0v300zM1200 0h200v300a100 100 0 0 1-200 0z" fill="#FBD220"/>
+    <g fill="currentColor"><circle cx="1500" cy="100" r="100"/><rect x="1400" y="200" width="200" height="200"/></g>
+    <g fill="#CA5879"><circle cx="1700" cy="100" r="100"/><circle cx="1900" cy="100" r="100"/><circle cx="1700" cy="300" r="100"/><circle cx="1900" cy="300" r="100"/></g>
+  </symbol>
+  <symbol id="gh" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol>
+</svg>
+
+<header class="site" id="hdr">
+  <div class="wrap row">
+    <a class="logo" href="#" aria-label="OminiX home"><svg viewBox="0 0 2000 400"><use href="#wordmark"/></svg></a>
+    <nav><a href="#modalities">Modalities</a><a href="#products">Products</a><a href="#models">Models</a><a href="#performance">Performance</a><a href="#quickstart">Quick start</a><a href="#">Docs</a></nav>
+    <div class="hdr-actions">
+      <div class="lang-switch" role="group" aria-label="Language"><a href="preview.html" hreflang="en" lang="en" aria-current="true">EN</a><a href="preview-zh.html" hreflang="zh-CN" lang="zh-CN">中文</a></div>
+      <button class="icon-btn" id="theme" aria-label="Toggle theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg></button>
+      <a class="btn btn-primary btn-sm" href="https://github.com/OminiX-ai" aria-label="GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#gh"/></svg><span class="lbl">GitHub</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO (night band) ================= -->
+<section class="band hero on-night">
+  <div class="dotgrid" aria-hidden="true"></div>
+  <div class="deco d-circle" aria-hidden="true"><svg viewBox="0 0 200 200" style="color:#fff"><use href="#dot"/></svg></div>
+  <div class="deco d-arch" aria-hidden="true"><svg viewBox="0 0 400 400" style="color:#fff"><use href="#double-arch"/></svg></div>
+  <div class="deco d-wave" aria-hidden="true"><svg viewBox="0 0 400 400" style="color:#fff"><use href="#wave"/></svg></div>
+  <div class="deco d-quad" aria-hidden="true"><svg viewBox="0 0 400 400" style="color:#fff"><use href="#quad"/></svg></div>
+  <div class="deco d-dot" aria-hidden="true"><svg viewBox="0 0 200 200" style="color:#16A39C"><use href="#dot"/></svg></div>
+
+  <div class="wrap">
+    <span class="pill"><b>NEW</b> 22 model crates · Apple M1–M5 · Ascend NPU</span>
+    <div class="hero-mark play-in" id="heroMark" title="Click to replay">
+      <svg viewBox="0 0 2000 400" aria-hidden="true">
+        <circle class="g g-o" cx="200" cy="200" r="200" fill="#16A39C"/>
+        <path class="g g-m" d="M400 400V100a100 100 0 0 1 200 0a100 100 0 0 1 200 0v300z" fill="#CE412B"/>
+        <g class="g g-i1" fill="currentColor"><circle cx="900" cy="100" r="100"/><rect x="800" y="200" width="200" height="200"/></g>
+        <path class="g g-n" d="M1000 400V100a100 100 0 0 1 200 0v300zM1200 0h200v300a100 100 0 0 1-200 0z" fill="#FBD220"/>
+        <g class="g g-i2" fill="currentColor"><circle cx="1500" cy="100" r="100"/><rect x="1400" y="200" width="200" height="200"/></g>
+        <g class="g-x" fill="#CA5879"><circle cx="1700" cy="100" r="100"/><circle cx="1900" cy="100" r="100"/><circle cx="1700" cy="300" r="100"/><circle cx="1900" cy="300" r="100"/></g>
+      </svg>
+    </div>
+    <h1><span class="sr-only">OminiX — </span>Every modality. <em>On your device.</em></h1>
+    <p class="sub">Run LLMs, generate images, clone voices and transcribe speech locally. Pure Rust, zero Python, OpenAI-compatible.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="#quickstart">Get started <span aria-hidden="true">→</span></a>
+      <a class="btn btn-outline" href="https://github.com/OminiX-ai"><svg viewBox="0 0 16 16"><use href="#gh"/></svg>Star on GitHub</a>
+    </div>
+    <div><div class="install"><code><span class="p">$</span> curl -fsSL https://raw.githubusercontent.com/OminiX-ai/OminiX-API/main/install.sh | sh</code><button id="copy">Copy</button></div></div>
+    <div class="stats">
+      <div class="stat"><svg viewBox="0 0 200 200" style="color:#16A39C"><use href="#dot"/></svg><span class="v">45</span><span class="l">tok/s on M3 Max</span></div>
+      <div class="stat"><svg viewBox="0 0 400 400" style="color:#CE412B"><use href="#double-arch"/></svg><span class="v">18×</span><span class="l">real-time ASR</span></div>
+      <div class="stat"><svg viewBox="0 0 400 400" style="color:#FBD220"><use href="#wave"/></svg><span class="v">~3s</span><span class="l">per image</span></div>
+      <div class="stat"><svg viewBox="0 0 400 400" style="color:#CA5879"><use href="#quad"/></svg><span class="v">0</span><span class="l">Python deps</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MODALITIES (bento) ================= -->
+<section class="sec" id="modalities">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><svg viewBox="0 0 200 200" style="color:var(--teal)"><use href="#dot"/></svg>One runtime</span>
+      <h2 class="title">Four senses, one local server.</h2>
+      <p class="lede">Each modality has its own colour, taken from the logo. You'll see it again in tags, charts and endpoints across the site.</p>
+    </div>
+    <div class="bento">
+      <article class="card b-llm reveal" data-c="teal">
+        <svg class="corner" viewBox="0 0 200 200" style="color:var(--teal)"><use href="#dot"/></svg>
+        <span class="chip chip-teal"><i class="d"></i>Language</span>
+        <h3>Chat with frontier open models</h3>
+        <p>Qwen3, GLM-4, Mixtral, Gemma 4, MiniCPM and more, streamed through a drop-in OpenAI API.</p>
+        <div class="chatmock">
+          <div class="bubble u">Summarise this meeting in three bullets.</div>
+          <div class="bubble a">• Ship v0.4 Friday • Ascend build moves to CI • Voice demo for the keynote<span class="caret"></span></div>
+        </div>
+        <div class="foot"><span class="metric">45<small>tok/s · Qwen3-4B</small></span><span class="endpoint">POST /v1/chat/completions</span></div>
+      </article>
+
+      <article class="card b-img reveal" data-c="sun">
+        <span class="chip chip-sun"><i class="d"></i>Vision</span>
+        <h3>Generate images in seconds</h3>
+        <p>FLUX.2-klein and Z-Image-Turbo on Metal. Both images below were generated on-device.</p>
+        <div class="arches">
+          <figure style="margin:0"><div class="arch"><img src="assets/showcase/zimage-black-cat.webp" alt="A black cat licking a red apple, generated by Z-Image-Turbo"></div><figcaption class="cap">Z-Image-Turbo · ~3 s</figcaption></figure>
+          <figure style="margin:0;padding-top:48px"><div class="arch cup"><img src="assets/showcase/flux-klein-steam-train.webp" alt="A steam locomotive in a stone tunnel, generated by FLUX.2-klein"></div><figcaption class="cap">FLUX.2-klein</figcaption></figure>
+        </div>
+        <div class="foot"><span class="endpoint">POST /v1/images/generations</span></div>
+      </article>
+
+      <article class="card b-asr reveal" data-c="verm">
+        <span class="chip chip-verm"><i class="d"></i>Speech in</span>
+        <h3>Transcribe at 18× real-time</h3>
+        <div class="transcript">
+          <div><span>00:01.2</span>Welcome back to the OminiX demo.</div>
+          <div><span>00:03.8</span>Everything you hear runs locally…</div>
+          <div><span>00:06.1</span>on a MacBook, offline.</div>
+        </div>
+        <div class="foot"><span class="metric">18×<small>real-time · Paraformer</small></span><span class="endpoint">POST /v1/audio/transcriptions</span></div>
+      </article>
+
+      <article class="card b-tts reveal" data-c="rose" id="voice">
+        <div class="vo">
+          <div>
+            <span class="chip chip-rose"><i class="d"></i>Voice out</span>
+            <h3>Hear it. Generated on this Mac.</h3>
+            <p>This clip is real Qwen3-TTS output from OminiX-API, made on an Apple M4 Pro faster than real time. Press play.</p>
+          </div>
+          <div class="vo-stage">
+            <div class="vo-pick" role="radiogroup" aria-label="Preset voice" hidden></div>
+            <div class="vo-player" data-player="main">
+              <button type="button" class="vo-play" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h4.5v16H6zM13.5 4H18v16h-4.5z"/></svg></button>
+              <div class="vo-wave" aria-hidden="true"></div>
+              <span class="vo-time">0:00 / 0:00</span>
+            </div>
+            <p class="vo-text" id="voText"></p>
+            <div class="vo-meta" id="voMeta"></div>
+          </div>
+        </div>
+        <div class="foot"><span class="metric" id="voMetric"></span><span class="endpoint">POST /v1/audio/speech</span></div>
+        <audio id="voAudio" preload="none"></audio>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCTS ================= -->
+<section class="sec" id="products" style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><svg viewBox="0 0 200 400" style="color:var(--vermilion)"><use href="#arch"/></svg>The stack</span>
+      <h2 class="title">Three products, one platform.</h2>
+    </div>
+    <div class="products">
+      <article class="card product reveal">
+        <img class="wm only-dark" src="assets/logo/ominix-studio-dark.png" alt="OminiX Studio"><img class="wm only-light" src="assets/logo/ominix-studio.png" alt="OminiX Studio">
+        <p style="margin-top:18px">Native desktop app built with Makepad. Chat, images and voice, with local or cloud backends.</p>
+        <ul><li>macOS · Windows · Linux</li><li>Rust + Makepad UI</li></ul>
+        <a class="link-arrow" href="https://github.com/OminiX-ai/OminiX-Studio">View repository →</a>
+      </article>
+      <article class="card product reveal">
+        <img class="wm only-dark" src="assets/logo/ominix-api-dark.png" alt="OminiX API"><img class="wm only-light" src="assets/logo/ominix-api.png" alt="OminiX API">
+        <p style="margin-top:18px">OpenAI-compatible HTTP + WebSocket server. Hot-swap models, shared GPU memory.</p>
+        <ul><li>/v1/chat · /v1/audio · /v1/images</li><li>Streaming TTS over WebSocket</li></ul>
+        <a class="link-arrow" href="https://github.com/OminiX-ai/OminiX-API">View repository →</a>
+      </article>
+      <article class="card product reveal">
+        <img class="wm only-dark" src="assets/logo/ominix-mlx-dark.png" alt="OminiX MLX"><img class="wm only-light" src="assets/logo/ominix-mlx.png" alt="OminiX MLX">
+        <p style="margin-top:18px">Safe Rust bindings to Apple MLX plus model crates for LLM, ASR, TTS, VLM, OCR and image generation.</p>
+        <ul><li>Metal · unified memory</li><li>Apple M1 – M5</li></ul>
+        <a class="link-arrow" href="https://github.com/OminiX-ai/OminiX-MLX">View repository →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MODELS (night band, giant ghost shapes) ================= -->
+<section class="band models on-night" id="models">
+  <div class="dotgrid" aria-hidden="true"></div>
+  <div class="deco d-quad" aria-hidden="true"><svg viewBox="0 0 400 400" style="color:#fff"><use href="#quad"/></svg></div>
+  <div class="deco d-circle" aria-hidden="true"><svg viewBox="0 0 200 200" style="color:#fff"><use href="#dot"/></svg></div>
+  <div class="wrap" style="text-align:center">
+    <span class="eyebrow"><svg viewBox="0 0 400 400" style="color:var(--rose)"><use href="#quad"/></svg>Model zoo</span>
+    <h2 class="title">Every model is its own crate.</h2>
+    <p class="lede" style="margin-inline:auto">22 Rust crates, downloaded on first use and cached locally. Load what you need, unload what you don't.</p>
+    <div class="model-groups" style="text-align:left">
+      <div class="grp"><h4><i style="background:#16A39C"></i>Language<b>9</b></h4><div class="tags"><span>Qwen3</span><span>Qwen3.5</span><span>GLM-4</span><span>GLM-4-MoE</span><span>GLM-4.7-Flash</span><span>Mixtral</span><span>Mistral</span><span>Gemma 4</span><span>MiniCPM-SALA</span></div></div>
+      <div class="grp"><h4><i style="background:#CE412B"></i>Speech in<b>4</b></h4><div class="tags"><span>Qwen3-ASR</span><span>Paraformer</span><span>FunASR-Nano</span><span>FunASR-Qwen4B</span></div></div>
+      <div class="grp"><h4><i style="background:#FBD220"></i>Vision<b>6</b></h4><div class="tags"><span>FLUX.2-klein</span><span>Z-Image</span><span>Qwen-Image</span><span>Qwen3-VL</span><span>Moxin-7B VLM</span><span>DeepSeek-OCR-2</span></div></div>
+      <div class="grp"><h4><i style="background:#CA5879"></i>Voice out<b>3</b></h4><div class="tags"><span>Qwen3-TTS</span><span>GPT-SoVITS</span><span>Step-Audio-2</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PERFORMANCE ================= -->
+<section class="sec" id="performance">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow"><svg viewBox="0 0 400 400" style="color:var(--sunflower)"><use href="#wave"/></svg>Benchmarks · Apple M3 Max</span>
+      <h2 class="title">Fast because it's native.</h2>
+    </div>
+    <div class="reveal">
+      <div class="bargrp"><p><i style="background:var(--teal)"></i>Language · tokens / s</p><div class="bars">
+        <div class="bar"><span class="n">Qwen3-4B<small>8 GB</small></span><div class="track"><div class="fill" style="width:90%;background:var(--teal)">45 tok/s</div></div></div>
+        <div class="bar"><span class="n">GLM4-9B 4-bit<small>6 GB</small></span><div class="track"><div class="fill" style="width:70%;background:var(--teal)">35 tok/s</div></div></div>
+      </div></div>
+      <div class="bargrp"><p><i style="background:var(--vermilion)"></i>Speech in · × real-time</p><div class="bars">
+        <div class="bar"><span class="n">Paraformer<small>500 MB</small></span><div class="track"><div class="fill" style="width:100%;background:var(--vermilion);color:#fff">18× real-time</div></div></div>
+      </div></div>
+      <div class="bargrp"><p><i style="background:var(--rose)"></i>Voice out · × real-time</p><div class="bars">
+        <div class="bar"><span class="n">Qwen3-TTS<small>1.8 GB</small></span><div class="track"><div class="fill" style="width:58%;background:var(--rose)">2.3× real-time</div></div></div>
+      </div></div>
+      <div class="bargrp"><p><i style="background:var(--sunflower)"></i>Vision · seconds / image (shorter is faster)</p><div class="bars">
+        <div class="bar"><span class="n">Z-Image-Turbo<small>3 GB · 4-bit</small></span><div class="track"><div class="fill" style="width:36%;background:var(--sunflower)">~3 s</div></div></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPARISON ================= -->
+<section class="sec" style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow"><svg viewBox="0 0 200 400" style="color:var(--ink)"><use href="#pip"/></svg>Comparison</span><h2 class="title">More than an LLM runner.</h2></div>
+    <div style="overflow-x:auto" class="reveal">
+      <table class="cmp">
+        <thead><tr><th></th><th class="us">OminiX</th><th>Ollama</th><th>LM Studio</th></tr></thead>
+        <tbody>
+          <tr><td>Voice cloning</td><td class="us"><i class="yes"></i>Yes</td><td><i class="no"></i>No</td><td><i class="no"></i>No</td></tr>
+          <tr><td>Image generation</td><td class="us"><i class="yes"></i>FLUX, Z-Image</td><td><i class="no"></i>No</td><td><i class="no"></i>No</td></tr>
+          <tr><td>OpenAI API</td><td class="us"><i class="yes"></i>Full</td><td><i class="part"></i>Partial</td><td><i class="part"></i>Partial</td></tr>
+          <tr><td>Runtime</td><td class="us">Pure Rust</td><td>Go + C++</td><td>Electron + C++</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUICK START ================= -->
+<section class="sec" id="quickstart">
+  <div class="wrap" style="max-width:920px">
+    <div class="sec-head reveal"><span class="eyebrow"><svg viewBox="0 0 200 400" style="color:var(--teal)"><use href="#cup"/></svg>Get started</span><h2 class="title">Running in 60 seconds.</h2></div>
+    <div class="steps reveal">
+      <div><b style="background:var(--teal)">1</b>Install</div><span class="ln"></span>
+      <div><b style="background:var(--sunflower)">2</b>Start the server</div><span class="ln"></span>
+      <div><b style="background:var(--rose)">3</b>Call any endpoint</div>
+    </div>
+    <div class="term reveal">
+      <div class="bar-top"><i style="background:#CE412B"></i><i style="background:#FBD220"></i><i style="background:#16A39C"></i><span>~/ominix</span><div class="tabs"><b class="on">curl</b><b>python</b><b>node</b></div></div>
+<pre><span class="c"># 1 · install</span>
+<span class="k">curl</span> <span class="f">-fsSL</span> https://raw.githubusercontent.com/OminiX-ai/OminiX-API/main/install.sh | sh
+
+<span class="c"># 2 · start the server</span>
+<span class="k">ominix-api</span>
+
+<span class="c"># 3 · chat</span>
+<span class="k">curl</span> localhost:8080/v1/chat/completions \
+  <span class="f">-d</span> <span class="s">'{"model":"qwen3","messages":[{"role":"user","content":"Hello!"}]}'</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DESIGN KIT (reference only) ================= -->
+<section class="sec kit" style="background:var(--bg-2)">
+  <div class="wrap">
+    <span class="eyebrow">Reference only · not a page section</span>
+    <h2 class="title">Design kit</h2>
+
+    <h3>Brand (fills)</h3>
+    <div class="sw">
+      <div><i style="background:#16A39C"></i><p><b>Teal</b>#16A39C · "O" · language</p></div>
+      <div><i style="background:#CE412B"></i><p><b>Vermilion</b>#CE412B · "m" · speech in</p></div>
+      <div><i style="background:#FBD220"></i><p><b>Sunflower</b>#FBD220 · "n" · vision · CTA</p></div>
+      <div><i style="background:#CA5879"></i><p><b>Rose</b>#CA5879 · "x" · voice out</p></div>
+      <div><i style="background:var(--ink)"></i><p><b>Ink</b>#000 / #FFF · "i" · infra</p></div>
+      <div><i style="background:#041918"></i><p><b>Night</b>#041918 · teal hue, L 0.195</p></div>
+    </div>
+    <h3>Surfaces (current theme)</h3>
+    <div class="sw">
+      <div><i style="background:var(--bg)"></i><p><b>bg</b>night / paper</p></div>
+      <div><i style="background:var(--bg-2)"></i><p><b>bg-secondary</b></p></div>
+      <div><i style="background:var(--s1)"></i><p><b>surface-1</b>cards</p></div>
+      <div><i style="background:var(--s2)"></i><p><b>surface-2</b>wells</p></div>
+      <div><i style="background:var(--s3)"></i><p><b>surface-3</b>borders</p></div>
+    </div>
+    <h3>Shape primitives (assets/logo/shapes.svg)</h3>
+    <div class="shapes">
+      <figure><svg viewBox="0 0 200 200" style="color:#16A39C"><use href="#dot"/></svg><figcaption>#dot</figcaption></figure>
+      <figure><svg viewBox="0 0 200 400" style="color:#CE412B"><use href="#arch"/></svg><figcaption>#arch</figcaption></figure>
+      <figure><svg viewBox="0 0 400 400" style="color:#CE412B"><use href="#double-arch"/></svg><figcaption>#double-arch</figcaption></figure>
+      <figure><svg viewBox="0 0 200 400" style="color:#FBD220"><use href="#cup"/></svg><figcaption>#cup</figcaption></figure>
+      <figure><svg viewBox="0 0 400 400" style="color:#FBD220"><use href="#wave"/></svg><figcaption>#wave</figcaption></figure>
+      <figure><svg viewBox="0 0 200 400" style="color:var(--ink)"><use href="#pip"/></svg><figcaption>#pip</figcaption></figure>
+      <figure><svg viewBox="0 0 200 200" style="color:var(--ink)"><use href="#block"/></svg><figcaption>#block</figcaption></figure>
+      <figure><svg viewBox="0 0 400 400" style="color:#CA5879"><use href="#quad"/></svg><figcaption>#quad</figcaption></figure>
+    </div>
+    <h3>Type scale (Geist / Geist Mono)</h3>
+    <div class="typescale">
+      <div><span>display 104/600</span><b style="font-size:clamp(40px,7vw,104px);letter-spacing:-.045em;font-weight:600;line-height:1;color:var(--bright)">On-device</b></div>
+      <div><span>h2 56/600</span><b style="font-size:clamp(30px,4vw,56px);letter-spacing:-.035em;font-weight:600;color:var(--bright)">Three products</b></div>
+      <div><span>h3 24/600</span><b style="font-size:24px;letter-spacing:-.025em;font-weight:600;color:var(--bright)">Clone a voice</b></div>
+      <div><span>body-l 19/400</span><span style="width:auto;font-family:var(--sans);font-size:19px;color:var(--dim)">Run LLMs, generate images and clone voices locally.</span></div>
+      <div><span>eyebrow 13 mono</span><span class="eyebrow" style="width:auto">Benchmarks · M3 Max</span></div>
+      <div><span>metric 44 mono</span><span style="width:auto;font-family:var(--mono);font-size:44px;letter-spacing:-.03em;color:var(--bright)">18×</span></div>
+    </div>
+    <h3>Buttons & chips</h3>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+      <a class="btn btn-primary" href="#">Get started →</a>
+      <a class="btn btn-outline" href="#"><svg viewBox="0 0 16 16"><use href="#gh"/></svg>GitHub</a>
+      <span class="chip chip-teal"><i class="d"></i>Language</span><span class="chip chip-verm"><i class="d"></i>Speech in</span><span class="chip chip-sun"><i class="d"></i>Vision</span><span class="chip chip-rose"><i class="d"></i>Voice out</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA + FOOTER (night band, giant wordmark horizon) ================= -->
+<section class="band cta-band on-night">
+  <div class="dotgrid" aria-hidden="true"></div>
+  <div class="deco d-dot1" aria-hidden="true"><svg viewBox="0 0 200 200" style="color:#FBD220"><use href="#dot"/></svg></div>
+  <div class="deco d-dot2" aria-hidden="true"><svg viewBox="0 0 200 200" style="color:#CA5879"><use href="#dot"/></svg></div>
+  <div class="wrap">
+    <span class="eyebrow"><svg viewBox="0 0 200 200" style="color:var(--teal)"><use href="#dot"/></svg>Local by default</span>
+    <h2 class="title" style="max-width:14ch;margin-inline:auto">Your models. Your machine. No cloud.</h2>
+    <div class="ctas"><a class="btn btn-primary" href="#quickstart">Get started →</a><a class="btn btn-outline" href="https://github.com/OminiX-ai"><svg viewBox="0 0 16 16"><use href="#gh"/></svg>GitHub</a></div>
+    <footer class="ft">
+      <span>© 2026 OminiX · Part of the <a href="https://github.com/moxin-org" style="color:var(--on-night)">Moxin Organization</a></span>
+      <nav><a href="https://github.com/OminiX-ai">GitHub</a><a href="#">Docs</a><a href="#quickstart">Quick start</a><span>MIT / Apache-2.0</span></nav>
+    </footer>
+  </div>
+  <div class="horizon" id="horizon" aria-hidden="true">
+    <svg viewBox="0 0 2000 400">
+      <circle class="g g-o" cx="200" cy="200" r="200" fill="#16A39C"/>
+      <path class="g g-m" d="M400 400V100a100 100 0 0 1 200 0a100 100 0 0 1 200 0v300z" fill="#CE412B"/>
+      <g class="g g-i1" fill="currentColor"><circle cx="900" cy="100" r="100"/><rect x="800" y="200" width="200" height="200"/></g>
+      <path class="g g-n" d="M1000 400V100a100 100 0 0 1 200 0v300zM1200 0h200v300a100 100 0 0 1-200 0z" fill="#FBD220"/>
+      <g class="g g-i2" fill="currentColor"><circle cx="1500" cy="100" r="100"/><rect x="1400" y="200" width="200" height="200"/></g>
+      <g class="g-x" fill="#CA5879"><circle cx="1700" cy="100" r="100"/><circle cx="1900" cy="100" r="100"/><circle cx="1700" cy="300" r="100"/><circle cx="1900" cy="300" r="100"/></g>
+    </svg>
+  </div>
+</section>
+
+<script src="preview.js?v=calm2" defer></script>
+</body>
+</html>
